@@ -1,11 +1,14 @@
-<h1>Sign up</h1>
+<p id=”alert”><%= alert %></p>
 
-<%#= render 'form', user: @user %>
+<% provide(:title, "Sign up") %>
+<h1>Sign up</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: signup_path) do |f| %>
-
+    <%#= form_for(:session, url: signup_path) do |f| %>
+    <%#= form_for(:user, url: create_user_path) do |f| %>
+    <%#= form_for(@user) do |f| %>
+    <%= form_with(model: @user, local: true) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
